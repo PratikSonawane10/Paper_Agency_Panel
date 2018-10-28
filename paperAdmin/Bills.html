@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Admin Page | Dashboard</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.4 -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- FontAwesome 4.3.0 -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons 2.0.0 -->
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- Theme style -->
+    <link href="dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link href="dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+     <!-- date picker -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.15.35/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
+    <!-- iCheck -->
+    <link href="plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css" />
+    <!-- Morris chart -->
+    <link href="plugins/morris/morris.css" rel="stylesheet" type="text/css" />
+    <!-- jvectormap -->
+    <link href="plugins/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <!-- Date Picker -->
+    <link href="plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/BillList.js"></script>
+    <script src="js/urlenvironment.js"></script>
+    <script src="js/jquery-validation-1.13.1/lib/jquery.js"></script>
+    <script src="js/jquery-validation-1.13.1/dist/jquery.validate.js"></script>
+    <style>
+	 	.ListTable1, th, td{
+		        border: 1px solid black !important;
+				border-collapse: collapse;
+				padding: 7px 6px;
+		}
+		<!-- table, -->
+			<!-- th, -->
+			<!-- td { -->
+				<!-- border: 1px solid black; -->
+				<!-- border-collapse: collapse; -->
+				<!-- padding: 7px 6px; -->
+			<!-- } -->
+			
+		input {
+			display: block;
+			margin-top: 10px;
+			margin-bottom: 20px;
+		  }
+		ul{
+			 background:#222d32;
+			list-style:none;
+			padding:0px;
+			margin:0px;
+			width:96%;
+		}
+		ul li{
+			color:#fff;
+			padding:4px 10px;
+			border-radius:4px;
+		}
+		
+		
+		table,
+        th,
+        td {
+            border: 2px solid black;
+            border-collapse: collapse;
+          padding: 0px 3px 0px 3px;
+        }
+        
+        .logo {
+            width: 15%;
+            float: left;
+        }
+        
+        .events {
+		text-align:center;
+            width: 60%;
+            float: left;
+        }
+        
+        .ScndLogo {
+            width: 25%;
+            float: left;
+        }
+        
+        .hederData {
+     margin-top: -4px;
+    font-size: 13px;
+    margin-bottom: 0px;
+        }
+        
+        .hederHeading {
+            margin: 0px;
+            background: #000;
+            color: #fff;
+            padding: 5px 28px;
+            border-radius: 57px;
+            font-size: 26px;
+        }
+        
+        <!-- .rightData { -->
+            <!-- margin: 0px 52px 5px -46px; -->
+        <!-- } -->
+        
+        .number {
+            width: 49%;
+            float: left;
+        }
+        
+        .HeadinPart {
+            width: 18%;
+            float: left;
+        }
+        
+        .numHeading {
+			text-align: left;
+			margin-top: 2px;
+			margin-bottom: 0px;
+			font-size: 11px;
+        }
+        
+        .numColon {
+			text-align: left;
+			margin-top: 2px;
+			margin-bottom: -3px;
+			font-size: 11px;
+        }
+        
+        .ColonMain {
+            width: 3%;
+            float: left;
+        }
+        
+        .Datamain {
+            width: 66%;
+            float: left;
+        }
+        
+        .mainData {
+			   text-align: left;
+				margin-top: 2px;
+				margin-bottom: 0px;
+				font-size: 11px;
+        }
+        
+        .ShriNamemain {
+            width: 100%;
+        }
+        
+        .ShriName {
+            margin-bottom: 14px;
+			width: 15%;
+			float: left;
+        }
+        
+        .ShriNamehd {
+            text-align: left;
+            margin-top: 0px;
+            margin-bottom: 4px;
+        }
+        
+        .ShriNameData {
+               text-align: left;
+				margin-top: 0px;
+				margin-bottom: -1px;
+				font-size: 11px;
+        }
+        
+        .ShriNamecol {
+            width: 2%;
+            float: left;
+        }
+        
+        .ShriNamecolon {
+               text-align: left;
+				margin-top: -1px;
+				margin-bottom: -3px;
+				font-size: 12px;
+        }
+        
+        .ShriNameDt {
+             width: 83%;
+    float: left;
+    border-bottom: 2px dotted;
+    height: 14px;
+        }
+        
+        .ShriNameuser {
+           text-align: left;
+    margin-top: -3px;
+    margin-bottom: -3px;
+    border-bottom: 1px dotted solid;
+    font-size: 12px;
+        }
+        
+        .pratache {
+		    margin-top:-14px;
+            text-align: center;
+        }
+        
+        .pratacheHd {
+            margin-top: 0px;
+            margin-bottom: -1px;
+        }
+        
+        .Nawpratache {
+            background: #fff;
+            padding: 0px 17px;
+            font-size: 17px;
+        }
+        
+        .DeatilMain {
+            width: 100%;
+        }
+        
+        .detailHeading {
+            margin-top: 0px;
+            margin-bottom: 0px;
+			font-size:10px;
+        }
+        
+        .rupeeSec {
+            width: 40%;
+            float: left;
+        }
+        
+        .userName {
+            text-align: left;
+            margin-top: 0px;
+            margin-bottom: -1px;
+			font-size: 10px;
+        }
+        
+        .rupeeSeccol {
+            width: 3%;
+            float: left;
+        }
+        
+        .rupeeSecdt {
+            width: 56%;
+            float: left;
+            border-bottom: 2px dotted;
+            height: 14px;
+        }
+        
+        .rscolon {
+               text-align: left;
+				margin-top: 0px;
+				margin-bottom: 0px;
+				font-size: 10px;
+        }
+        
+        .rupeeSecdata {
+            text-align: left;
+            margin-top: 0px;
+            margin-bottom: 4px;
+        }
+        
+        .correct {
+            width: 22%;
+            float: left;
+            margin-top: 15px;
+			    clear: both;
+        }
+        
+        .correctData {
+               margin-bottom: 9px;
+    text-align: center;
+    margin-top: 0px;
+    font-size: 10px;
+        }
+        
+        .DateSection {
+            width: 76%;
+            float: left;
+            margin-top: 15px;
+        }
+        
+        .ratesection {
+            width: 100%;
+        }
+        
+        .rateData {
+               text-align: justify !important;
+       margin-top: 0px;
+    margin-bottom: 1px;
+    font-size: 12px;
+        }
+        
+        .rateHeading {
+            clear: both;
+            text-align: center;
+            border-width: 1px 0px 0px 0px;
+            border-style: solid;
+        }
+        
+        .topbrd1 {
+            clear: both;
+            text-align: center;
+            border-width: 1px 0px 0px 0px;
+            border-style: solid;
+            margin-bottom: 5px;
+        }
+        
+        .topbrd2 {
+            clear: both;
+            text-align: center;
+            border-width: 3px 0px 0px 0px;
+            border-style: solid;
+            margin-bottom: 5px;
+        }
+        
+        .rateHeadingData {
+            margin-top: -22px;
+            text-align: center;
+            margin-bottom: 0px;
+        }
+        
+        .rathed {
+            font-size: 16px;
+            background: #fff;
+            padding: 2px 4px;
+        }
+	</style>
+	
+	<script>
+        $(document).ready(function() {
+            $('#btnPrint').click(function() {
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth() + 1; //January is 0!
+                var yyyy = today.getFullYear();
+                var h = today.getHours("00");
+                var m = today.getMinutes("00");
+                if (dd < 10) {
+                    dd = '0' + dd;
+                }
+                if (mm < 10) {
+                    mm = '0' + mm;
+                }
+                if (h < 10) {
+                    h = '0' + h;
+                }
+                if (m < 10) {
+                    m = '0' + m;
+                }
+                var today = dd + '/' + mm + '/' + yyyy;
+                var time = h + ':' + m;
+
+                var d = '<p style="text-align:right;font-weight:bold;font-size:17px;">' + time + '<br /><span style="text-align:right;font-weight:bold;font-size:16px;">' + today + '</span></p>';
+                $("#dttime").html(d);
+                $("#DisplayData").show();
+                var divContentss = $('#PrintPage').html();
+                var w = window.open();
+                $(w.document.body).html(divContentss);
+                w.document.write('<html><head><style>table,th,td {border: 2px solid black;border-collapse: collapse;padding: 0px 3px 0px 3px;}.logo {     margin-top: 3px;width: 15%; float: left;}.events {width: 60%;float: left;}.ScndLogo {width: 25%;float: left;}.hederData {    margin-top: -4px;font-size: 13px;margin-bottom: 0px;}.hederHeading { margin: 0px;background: #000;color: #fff;padding: 5px 28px;border-radius: 57px;font-size: 26px;}.rightData {} .number {width: 49%;float: left;}.HeadinPart {width: 18%; float: left;}.numHeading {text-align: left;margin-top: 2px;margin-bottom: 0px;font-size: 11px;}.numColon {text-align: left; margin-top: 2px;margin-bottom: -3px;font-size: 11px;}.ColonMain {width: 3%;float: left;}.Datamain {width: 66%;float: left;}.mainData {    text-align: left; margin-top: 2px;margin-bottom: 0px;font-size: 11px;}.ShriNamemain {width: 100%;}.ShriName {    margin-bottom: 14px;width: 15%;float: left; }.ShriNamehd {text-align: left;margin-top: 0px;margin-bottom: 4px;}.ShriNameData {    text-align: left;margin-top: 0px;margin-bottom: -1px;font-size: 11px;}.ShriNamecol {width: 2%;float: left;}.ShriNamecolon {    text-align: left;margin-top: -1px;margin-bottom: -3px;font-size: 12px;}.ShriNameDt {width: 83%;float: left;border-bottom: 2px dotted;height: 14px;}.ShriNameuser {text-align: left;margin-top: -3px;margin-bottom: -3px;border-bottom: 1px dotted solid;font-size: 12px;}.pratache {text-align: center;margin-top:-14px;}.pratacheHd {margin-top: 0px;margin-bottom: -1px;}.Nawpratache {background: #fff;padding: 0px 17px;font-size: 16px;}.DeatilMain {width: 100%;}.detailHeading {margin-top: 0px;margin-bottom: 2px;font-size:10px;}.rupeeSec {width: 40%;float: left;}.userName {text-align: left;margin-top: 0px;margin-bottom: -1px;font-size: 10px;}.rupeeSeccol {width: 3%;float: left;}.rupeeSecdt {width: 56%;float: left;border-bottom: 2px dotted;height: 14px;}.rscolon {    text-align: left;margin-top: 0px;margin-bottom: 0px;font-size: 10px;}.rupeeSecdata {text-align: left;margin-top: 0px;margin-bottom: 4px;}.correct {width: 22%;float: left;margin-top: 15px;clear:both;}.correctData {    margin-bottom: 9px;text-align: center;margin-top: 0px;font-size: 10px;}.DateSection {width: 76%;float: left;margin-top: 15px;}.ratesection {width: 100%;}.rateData {    text-align: justify !important;margin-top: 0px;margin-bottom: 1px;font-size: 12px;}.rateHeading {clear: both;text-align: center;border-width: 1px 0px 0px 0px;border-style: solid;}.topbrd1 { clear: both;text-align: center;border-width: 1px 0px 0px 0px;border-style: solid;margin-bottom: 5px;}.topbrd2 {clear: both;text-align: center;border-width: 3px 0px 0px 0px;border-style: solid;margin-bottom: 5px;}.rateHeadingData {margin-top: -22px;text-align: center;margin-bottom: 0px;}.rathed {font-size: 16px;background: #fff;padding: 2px 4px;}</style></head>');
+                //w.document.write('<html><head><style>.dataMainDiv{top:-15px !important;}.scLogoPr{display:block !important;}.anp_list{ border: 1px solid #000; padding: 4px 7px;}.dyn_logo{width:15%;float:left;}.dyn_name{width:85%;float:left;text-align:center;}.lcPrintHide{display:none !important;}.page{page-break-after: always;page-break-inside: avoid;display:block !important;}.CertfyLcTextLC {text-align: center;font-size: 15px;}.Signtlc{margin-bottom: 0px;font-weight: bold;font-size: 16px;letter-spacing: 1px;}.manag{width:28%;float:left;}.managColon{width:5%;float:left;}.managData{width:67%;float:left;}.NmName{font-family:barkentina !important;font-size:14px;font-weight:normal;letter-spacing:0.6px;margin: 2px 0px 3px 0px;}.NmColon{font-weight:bold;font-size:15px;margin: 2px 0px 3px 0px;}.NmData{text-align: justify;font-size:13px;font-weight:normal;font-family:barkentina;letter-spacing:0.6px;margin: 2px 0px 3px 0px;}.PhoneNo{width:30%;float:left;}.PhoneNoColon{width:4%;float:left;}.PhoneNoData{width:65%;float:left;}.EmailId{width:20%;float:left;}.EmailIdColon{width:4%;float:left;}.EmailIdData{width:65%;float:left;}.RecogName{width:36%;float:left;}.RecogNameColon{width:2%;float:left;}.RecogNameData{width:61%;float:left;}.Medium{width:36%;float:left;}.MediumColon{width:4%;float:left;}.MediumData{width:60%;float:left;}.GeneralReg{width:45%;float:left;}.GeneralRegColon{width:4%;float:left;}.GeneralRegData{width:50%;float:left;}.GnRegData{border-bottom: 1px solid #000;height: 20px;margin: 0px;line-height: 20px;font-size: 13px;}.srnomain{width:25%;float:right;}.Serial{width:50%;float:left;}.SerialColon{width:6%;float:left;}.SerialData{width:40%;float:left;}.UdiseNo{width:33%;float:left;}.UdiseNoColon{width:6%;float:left;}.UdiseNoData{width:54%;float:left;}.Board{width:18%;float:left;}.BoardColon{width:4%;float:left;}.BoardData{width:65%;float:left;}.Affili{width:49%;float:left;}.AffiliColon{width:4%;float:left;}.AffiliData{width:46%;float:left;}.StudentIdNo{width:39%;float:left;}.StudentIdNoColon{width:2%;float:left;}.StudentIdNoData{width:54%;float:left;}.UidAa{width:60%;float:left;}.UidAaColon{width:2%;float:left;}.UidAaData{width:38%;float:left;}.studentnameLC{width:55%;float:left;margin-bottom: 8px;}.fathernameLC{width:22.5%;float:left;margin-bottom: 8px;}.SurenameLC{width:22.5%;float:left;margin-bottom: 8px;}.PupilNm{width:50%;float:left;}.PupilNmColon{width:2%;float:left;}.PupilNmData{width:48%;float:left;}.pupilNamec{text-align: center;display: block;}.fathersNAme{width: 99%;float: left;margin-left: 1%;}.MothersName{width:18%;float:left;}.MothersNameColon{width:2%;float:left;}.MothersNameData{width:80%;float:left;}.Nationalitylc{width:24%;float:left;}.NationalitylcColon{width:2%;float:left;}.NationalitylcData{width:65%;float:left;}.Mtong{width:42%;float:left;}.MtongColon{width:2%;float:left;}.MtongData{width:56%;float:left;}.Religion{width:30%;float:left;}.ReligionColon{width:4%;float:left;}.ReligionData{width:65%;float:left;}.Castelc{width:30%;float:left;}.CastelcColon{width:4%;float:left;}.CastelcData{width:65%;float:left;}.SubCaste{width:30%;float:left;}.SubCasteColon{width:4%;float:left;}.SubCasteData{width:65%;float:left;}.PobLc{width:42%;float:left;}.PobLcColon{width:2%;float:left;}.PobLcData{width:54%;float:left;}.Talukalc{width:32%;float:left;}.TalukalcColon{width:4%;float:left;}.TalukalcData{width:64%;float:left;}.Talukalc{width:32%;float:left;}.TalukalcColon{width:4%;float:left;}.TalukalcData{width:64%;float:left;}.DistLc{width:22%;float:left;}.DistLcColon{width:4%;float:left;}.DistLcData{width:73%;float:left;}.Statelc{width:24%;float:left;}.StatelcColon{width:2%;float:left;}.StatelcData{width:65%;float:left;}.Countrylc{width:24%;float:left;}.CountrylcColon{width:2%;float:left;}.CountrylcData{width:73%;float:left;}.DobLc{width:26%;float:left;}.DobLcColon{width:2%;float:left;}.DobLcData{width:71%;float:left;}.wordslc{width:26%;float:left;}.wordslcColon{width:2%;float:left;}.wordslcData{width:71%;float:left;}.lastshlc{width:26%;float:left;}.lastshlcColon{width:2%;float:left;}.lastshlcData{width:71%;float:left;}.DateAddlc{width:48%;float:left;}.DateAddlcColon{width:2%;float:left;}.DateAddlcData{width:50%;float:left;}.standrdlc{width:24%;float:left;}.standrdlcColon{width:2%;float:left;}.standrdlcData{width:72%;float:left;}.Academiclc{width:42%;float:left;}.AcademiclcColon{width:2%;float:left;}.AcademiclcData{width:56%;float:left;}.Conductlc{width:24%;float:left;}.ConductlcColon{width:2%;float:left;}.ConductlcData{width:72%;float:left;}.leavinglc{width:28%;float:left;}.leavinglcColon{width:2%;float:left;}.leavinglcData{width:70%;float:left;}.Studylc{width:55%;float:left;}.StudylcColon{width:2%;float:left;}.StudylcData{width:43%;float:left;}.Reasonlc{width:26%;float:left;}.ReasonlcColon{width:2%;float:left;}.ReasonlcData{width:71%;float:left;}.Remarkslc{width:26%;float:left;}.RemarkslcColon{width:2%;float:left;}.RemarkslcData{width:71%;float:left;}.Datelc{width:30%;float:left;}.DatelcColon{width:4%;float:left;}.DatelcData{width:65%;float:left;}.Monthlc{width:30%;float:left;}.MonthlcColon{width:4%;float:left;}.MonthlcData{width:65%;float:left;}.Yearlc{width:30%;float:left;}.YearlcColon{width:4%;float:left;}.YearlcData{width:65%;float:left;}.Notelc{width:6%;float:left;}.NotelcColon{width:2%;float:left;}.NotelcData{width:92%;float:left;}.Signtlc{margin-bottom: 0px;}</style></head>');
+                w.document.write('<body >');
+                w.document.write(divContentss);
+
+                w.document.write('</body></br></br></br></br><span class="right" style="text-align:center;"></html>');
+                //<!-- For Enquiry Please Contact This No. <b>022-65665688 </b> Timing<b> 9:30AM to 6:30PM </b></span> -->
+                //<span class="left" style="float:right;"></span>
+                //TEACHER SIGNATURE
+                //PRINCIPLE SIGNATURE
+                //w.print();
+                //$("#DisplayData").hide();
+                //w.close();
+				setTimeout(function() {
+					w.print();
+					$("#DisplayData").hide();
+					w.close();
+				}, 10); 
+            });
+        });
+    </script>
+	
+	
+  </head>
+  <body class="skin-blue sidebar-mini">
+    <div class="wrapper">
+
+      <header class="main-header">
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+          <!-- mini logo for sidebar mini 50x50 pixels -->
+          <span class="logo-mini"><b>GNA</b></span>
+          <!-- logo for regular state and mobile devices -->
+          <span class="logo-lg"><b>Ganesh News Agency</b></span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+          </a>
+        </nav>
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu">
+            <li class="header">MAIN NAVIGATION</li>
+            <li class="active treeview">
+              <a href="#">
+                <i class="fa fa-dashboard"></i> <span>Admin Pages</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                 <li><a href="AddUserDetails.html"><i class="fa fa-circle-o"></i>Add User </a></li>
+                <li><a href="UserList.html"><i class="fa fa-circle-o"></i>Users List </a></li>
+                <li><a href="AddArea.html"><i class="fa fa-circle-o"></i>Add Area</a></li>
+				<li><a href="AreaList.html"><i class="fa fa-circle-o"></i>Area List </a></li>
+				<li><a href="AddPaperDetails.html"><i class="fa fa-circle-o"></i>Add Paper </a></li>
+                <li><a href="PaperList.html"><i class="fa fa-circle-o"></i>Paper List </a></li>
+				<!-- <li><a href="GenerateBill.html"><i class="fa fa-circle-o"></i>Generate Bill</a></li> -->
+				<li><a href="Bills.html"><i class="fa fa-circle-o"></i>Bills </a></li>
+				<li><a href="CurrentMonth_Genarated_Bills.html"><i class="fa fa-circle-o"></i>Current Genarated Bills </a></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Admin Panel
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Bill List</li>
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+              <div class="box box-info">
+                <div class="box-header">
+                  <h3 class="box-title">Bill List</h3>
+                </div>
+                <div class="box-body">				 
+					<div class="form-group">
+          				<input type="text" class="form-control" id="txtUserName" name="username" placeholder="User Name" />
+          			</div>
+					<div class="form-group">
+          				<input type="text" class="form-control" id="txtMonthName" name="monthName" placeholder="Month Name" />
+          			</div>
+					<div class="form-group">
+          				<input type="text" class="form-control" id="txtBillNo" name="billNo" placeholder="Bill No" />
+          			</div>
+					<div class="table-responsive">
+                	<table class="ListTable1" id="listOBills" width="100%" align="center">
+						<thead>
+							
+						</thead>
+						<tbody>
+							
+						</tbody>	
+					</table>
+					</div>
+                </div>
+              </div>
+			  
+			  
+			  <div class="box box-info">
+                <!-- <div class="box-header"> -->
+                  <!-- <h3 class="box-title">Print View</h3> -->
+                <!-- </div> -->
+                <div class="box-body">
+				 <div class="col-md-2 col-sm-2 col-xs-12" style="margin-bottom: 10px; padding: 0px; text-align: center; ">
+                  <input type="button" value="Print" id="btnPrint" class="creat_data">
+                </div>
+				
+				
+				
+				 <div id="PrintPage" style="clear:both;">
+				  
+				 <div class="table-responsive">
+				 <div id="printData" class="abc" >
+					<!-- <table  id="printData" style="width:48%;float:left;"> -->
+						<!-- <thead> -->
+						
+						<!-- </thead> -->
+						
+					<!-- </table> -->
+					</div>
+					</div>
+				 </div>
+                </div>
+              </div>
+
+
+            </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> 2.2.0
+        </div>
+         <strong>Copyright &copy;<a href="http://mobitechs.in/">Mobitechs</a>.</strong> All rights reserved.
+      </footer>
+    </div>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script type="text/javascript">
+      $.widget.bridge('uibutton', $.ui.button);
+    </script>
+    <!-- Bootstrap 3.3.2 JS -->
+    <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- Morris.js charts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <!-- Sparkline -->
+    <script src="plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
+    <!-- jvectormap -->
+    <script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
+    <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="plugins/knob/jquery.knob.js" type="text/javascript"></script>
+    <!-- daterangepicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js" type="text/javascript"></script>
+    <!-- datepicker -->
+    <script src="plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
+    <!-- moment -->
+    <script src="plugins/daterangepicker/moment.js" type="text/javascript"></script>
+    <!-- Bootstrap WYSIHTML5 -->
+    <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
+    <!-- Slimscroll -->
+    <script src="plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <!-- FastClick -->
+    <script src="plugins/fastclick/fastclick.min.js" type="text/javascript"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/app.min.js" type="text/javascript"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="dist/js/demo.js" type="text/javascript"></script>
+    
+  </body>
+</html>

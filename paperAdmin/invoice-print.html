@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 2 | Invoice</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="../../bower_components/Ionicons/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/billPrint.js"></script>
+    <script src="js/urlenvironment.js"></script>
+    <script src="js/jquery-validation-1.13.1/lib/jquery.js"></script>
+    <script src="js/jquery-validation-1.13.1/dist/jquery.validate.js"></script>
+	<style>
+        table,
+        th,
+        td {
+            border: 3px solid black;
+            border-collapse: collapse;
+            padding: 7px 6px;
+        }
+        
+        .logo {
+            width: 15%;
+            float: left;
+        }
+        
+        .events {
+            width: 70%;
+            float: left;
+        }
+        
+        .ScndLogo {
+            width: 15%;
+            float: left;
+        }
+        
+        .hederData {
+            margin: 0px;
+        }
+        
+        .hederHeading {
+            margin: 0px;
+            background: #000;
+            color: #fff;
+            padding: 5px 28px;
+            border-radius: 57px;
+            font-size: 26px;
+        }
+        
+        .rightData {
+            margin: 0px 52px 5px -46px;
+        }
+        
+        .number {
+            width: 49%;
+            float: left;
+        }
+        
+        .HeadinPart {
+            width: 11%;
+            float: left;
+        }
+        
+        .numHeading {
+            text-align: left;
+            margin-top: 0px;
+            margin-bottom: 4px;
+        }
+        
+        .numColon {
+            text-align: left;
+            margin-top: 0px;
+            margin-bottom: 4px;
+        }
+        
+        .ColonMain {
+            width: 3%;
+            float: left;
+        }
+        
+        .Datamain {
+            width: 66%;
+            float: left;
+        }
+        
+        .mainData {
+            text-align: left;
+            margin-top: 0px;
+            margin-bottom: 4px;
+        }
+        
+        .ShriNamemain {
+            width: 100%;
+        }
+        
+        .ShriName {
+            margin-bottom: 14px;
+            width: 7%;
+            float: left;
+        }
+        
+        .ShriNamehd {
+            text-align: left;
+            margin-top: 0px;
+            margin-bottom: 4px;
+        }
+        
+        .ShriNameData {
+            text-align: left;
+            margin-top: 0px;
+            margin-bottom: 4px;
+        }
+        
+        .ShriNamecol {
+            width: 2%;
+            float: left;
+        }
+        
+        .ShriNamecolon {
+            text-align: left;
+            margin-top: 0px;
+            margin-bottom: 4px;
+        }
+        
+        .ShriNameDt {
+            width: 90%;
+            float: left;
+            border-bottom: 2px dotted;
+            height: 16px;
+        }
+        
+        .ShriNameuser {
+            text-align: left;
+            margin-top: 0px;
+            margin-bottom: 4px;
+            border-bottom: 1px dotted solid;
+        }
+        
+        .pratache {
+		    margin-top:-28px;
+            text-align: center;
+        }
+        
+        .pratacheHd {
+            margin-top: 0px;
+            margin-bottom: 4px;
+        }
+        
+        .Nawpratache {
+            background: #fff;
+            padding: 6px 17px;
+            font-size: 26px;
+        }
+        
+        .DeatilMain {
+            width: 100%;
+        }
+        
+        .detailHeading {
+            margin-top: 0px;
+            margin-bottom: 4px;
+        }
+        
+        .rupeeSec {
+            width: 16%;
+            float: left;
+        }
+        
+        .userName {
+            text-align: left;
+            margin-top: 0px;
+            margin-bottom: 4px;
+        }
+        
+        .rupeeSeccol {
+            width: 1%;
+            float: left;
+        }
+        
+        .rupeeSecdt {
+            width: 83%;
+            float: left;
+            border-bottom: 2px dotted;
+            height: 16px;
+        }
+        
+        .rscolon {
+            text-align: left;
+            margin-top: 0px;
+            margin-bottom: 4px;
+        }
+        
+        .rupeeSecdata {
+            text-align: left;
+            margin-top: 0px;
+            margin-bottom: 4px;
+        }
+        
+        .correct {
+            width: 38%;
+            float: left;
+            margin-top: 35px;
+			    clear: both;
+        }
+        
+        .correctData {
+            margin-bottom: 12px;
+            text-align: right;
+            margin-top: 0px;
+        }
+        
+        .DateSection {
+            width: 49%;
+            float: left;
+            margin-top: 35px;
+        }
+        
+        .ratesection {
+            width: 100%;
+        }
+        
+        .rateData {
+            text-align: justify;
+            text-align: left;
+            margin-top: 0px;
+            margin-bottom: 4px;
+        }
+        
+        .rateHeading {
+            clear: both;
+            text-align: center;
+            border-width: 1px 0px 0px 0px;
+            border-style: solid;
+        }
+        
+        .topbrd1 {
+            clear: both;
+            text-align: center;
+            border-width: 1px 0px 0px 0px;
+            border-style: solid;
+            margin-bottom: 5px;
+        }
+        
+        .topbrd2 {
+            clear: both;
+            text-align: center;
+            border-width: 3px 0px 0px 0px;
+            border-style: solid;
+            margin-bottom: 5px;
+        }
+        
+        .rateHeadingData {
+            margin-top: -30px;
+            text-align: center;
+            margin-bottom: 4px;
+        }
+        
+        .rathed {
+            font-size: 26px;
+            background: #fff;
+            padding: 2px 10px;
+        }
+		
+		
+		
+		
+		
+		
+		
+		
+		
+    </style>
+
+    <!-- table, th, td {border: 1px solid black;border-collapse: collapse;padding:7px 6px;}.logo{width:15%;float:left;}.events{width:70%;float:left;}.ScndLogo{width:15%;float:left;}.hederData{margin: 0px;}.hederHeading{margin: 0px;background: #000;color: #fff;padding: 13px 0px;border-radius: 57px;font-size: 30px;}.rightData{margin: 0px 52px 5px -46px;} -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#btnPrint').click(function() {
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth() + 1; //January is 0!
+                var yyyy = today.getFullYear();
+                var h = today.getHours("00");
+                var m = today.getMinutes("00");
+                if (dd < 10) {
+                    dd = '0' + dd;
+                }
+                if (mm < 10) {
+                    mm = '0' + mm;
+                }
+                if (h < 10) {
+                    h = '0' + h;
+                }
+                if (m < 10) {
+                    m = '0' + m;
+                }
+                var today = dd + '/' + mm + '/' + yyyy;
+                var time = h + ':' + m;
+
+                var d = '<p style="text-align:right;font-weight:bold;font-size:17px;">' + time + '<br /><span style="text-align:right;font-weight:bold;font-size:16px;">' + today + '</span></p>';
+                $("#dttime").html(d);
+                $("#DisplayData").show();
+                var divContentss = $('#PrintPage').html();
+                var w = window.open();
+                $(w.document.body).html(divContentss);
+                w.document.write('<html><head><style>table,th,td {border: 3px solid black;border-collapse: collapse;padding: 7px 6px;}.logo { width: 15%; float: left;}.events {width: 70%;float: left;}.ScndLogo {width: 15%;float: left;}.hederData {margin: 0px; }.hederHeading { margin: 0px;background: #000;color: #fff;padding: 5px 28px;border-radius: 57px;font-size: 26px;}.rightData {margin: 0px 52px 5px -46px;} .number {width: 49%;float: left;}.HeadinPart {width: 11%; float: left;}.numHeading {text-align: left; margin-top: 0px;margin-bottom: 4px;}.numColon {text-align: left;margin-top: 0px;margin-bottom: 4px;}.ColonMain {width: 3%;float: left;}.Datamain {width: 66%;float: left;}.mainData {text-align: left;margin-top: 0px;margin-bottom: 4px;}.ShriNamemain {width: 100%;}.ShriName {margin-bottom: 14px;width: 7%;float: left; }.ShriNamehd {text-align: left;margin-top: 0px;margin-bottom: 4px;}.ShriNameData {text-align: left;margin-top: 0px;margin-bottom: 4px;}.ShriNamecol {width: 2%;float: left;}.ShriNamecolon {text-align: left;margin-top: 0px;margin-bottom: 4px;}.ShriNameDt {width: 90%;float: left;border-bottom: 2px dotted;height: 16px;}.ShriNameuser {text-align: left;margin-top: 0px;margin-bottom: 4px;border-bottom: 1px dotted solid;}.pratache {text-align: center;margin-top:-28px;}.pratacheHd {margin-top: 0px;margin-bottom: 4px;}.Nawpratache {background: #fff;padding: 6px 17px;font-size: 26px;}.DeatilMain {width: 100%;}.detailHeading {margin-top: 0px;margin-bottom: 4px;}.rupeeSec {width: 16%;float: left;}.userName {text-align: left;margin-top: 0px;margin-bottom: 4px;}.rupeeSeccol {width: 1%;float: left;}.rupeeSecdt {width: 83%;float: left;border-bottom: 2px dotted;height: 16px;}.rscolon {text-align: left;margin-top: 0px;margin-bottom: 4px;}.rupeeSecdata {text-align: left;margin-top: 0px;margin-bottom: 4px;}.correct {width: 38%;float: left;margin-top: 35px;clear:both;}.correctData {margin-bottom: 12px;text-align: left;margin-top: 0px;}.DateSection {width: 49%;float: left;margin-top: 35px;}.ratesection {width: 100%;}.rateData {text-align: justify;text-align: left; margin-top: 0px;margin-bottom: 4px;}.rateHeading {clear: both;text-align: center;border-width: 1px 0px 0px 0px;border-style: solid;}.topbrd1 { clear: both;text-align: center;border-width: 1px 0px 0px 0px;border-style: solid;margin-bottom: 5px;}.topbrd2 {clear: both;text-align: center;border-width: 3px 0px 0px 0px;border-style: solid;margin-bottom: 5px;}.rateHeadingData {margin-top: -30px;text-align: center;margin-bottom: 4px;}.rathed {font-size: 26px;background: #fff;padding: 2px 10px;}</style></head>');
+                //w.document.write('<html><head><style>.dataMainDiv{top:-15px !important;}.scLogoPr{display:block !important;}.anp_list{ border: 1px solid #000; padding: 4px 7px;}.dyn_logo{width:15%;float:left;}.dyn_name{width:85%;float:left;text-align:center;}.lcPrintHide{display:none !important;}.page{page-break-after: always;page-break-inside: avoid;display:block !important;}.CertfyLcTextLC {text-align: center;font-size: 15px;}.Signtlc{margin-bottom: 0px;font-weight: bold;font-size: 16px;letter-spacing: 1px;}.manag{width:28%;float:left;}.managColon{width:5%;float:left;}.managData{width:67%;float:left;}.NmName{font-family:barkentina !important;font-size:14px;font-weight:normal;letter-spacing:0.6px;margin: 2px 0px 3px 0px;}.NmColon{font-weight:bold;font-size:15px;margin: 2px 0px 3px 0px;}.NmData{text-align: justify;font-size:13px;font-weight:normal;font-family:barkentina;letter-spacing:0.6px;margin: 2px 0px 3px 0px;}.PhoneNo{width:30%;float:left;}.PhoneNoColon{width:4%;float:left;}.PhoneNoData{width:65%;float:left;}.EmailId{width:20%;float:left;}.EmailIdColon{width:4%;float:left;}.EmailIdData{width:65%;float:left;}.RecogName{width:36%;float:left;}.RecogNameColon{width:2%;float:left;}.RecogNameData{width:61%;float:left;}.Medium{width:36%;float:left;}.MediumColon{width:4%;float:left;}.MediumData{width:60%;float:left;}.GeneralReg{width:45%;float:left;}.GeneralRegColon{width:4%;float:left;}.GeneralRegData{width:50%;float:left;}.GnRegData{border-bottom: 1px solid #000;height: 20px;margin: 0px;line-height: 20px;font-size: 13px;}.srnomain{width:25%;float:right;}.Serial{width:50%;float:left;}.SerialColon{width:6%;float:left;}.SerialData{width:40%;float:left;}.UdiseNo{width:33%;float:left;}.UdiseNoColon{width:6%;float:left;}.UdiseNoData{width:54%;float:left;}.Board{width:18%;float:left;}.BoardColon{width:4%;float:left;}.BoardData{width:65%;float:left;}.Affili{width:49%;float:left;}.AffiliColon{width:4%;float:left;}.AffiliData{width:46%;float:left;}.StudentIdNo{width:39%;float:left;}.StudentIdNoColon{width:2%;float:left;}.StudentIdNoData{width:54%;float:left;}.UidAa{width:60%;float:left;}.UidAaColon{width:2%;float:left;}.UidAaData{width:38%;float:left;}.studentnameLC{width:55%;float:left;margin-bottom: 8px;}.fathernameLC{width:22.5%;float:left;margin-bottom: 8px;}.SurenameLC{width:22.5%;float:left;margin-bottom: 8px;}.PupilNm{width:50%;float:left;}.PupilNmColon{width:2%;float:left;}.PupilNmData{width:48%;float:left;}.pupilNamec{text-align: center;display: block;}.fathersNAme{width: 99%;float: left;margin-left: 1%;}.MothersName{width:18%;float:left;}.MothersNameColon{width:2%;float:left;}.MothersNameData{width:80%;float:left;}.Nationalitylc{width:24%;float:left;}.NationalitylcColon{width:2%;float:left;}.NationalitylcData{width:65%;float:left;}.Mtong{width:42%;float:left;}.MtongColon{width:2%;float:left;}.MtongData{width:56%;float:left;}.Religion{width:30%;float:left;}.ReligionColon{width:4%;float:left;}.ReligionData{width:65%;float:left;}.Castelc{width:30%;float:left;}.CastelcColon{width:4%;float:left;}.CastelcData{width:65%;float:left;}.SubCaste{width:30%;float:left;}.SubCasteColon{width:4%;float:left;}.SubCasteData{width:65%;float:left;}.PobLc{width:42%;float:left;}.PobLcColon{width:2%;float:left;}.PobLcData{width:54%;float:left;}.Talukalc{width:32%;float:left;}.TalukalcColon{width:4%;float:left;}.TalukalcData{width:64%;float:left;}.Talukalc{width:32%;float:left;}.TalukalcColon{width:4%;float:left;}.TalukalcData{width:64%;float:left;}.DistLc{width:22%;float:left;}.DistLcColon{width:4%;float:left;}.DistLcData{width:73%;float:left;}.Statelc{width:24%;float:left;}.StatelcColon{width:2%;float:left;}.StatelcData{width:65%;float:left;}.Countrylc{width:24%;float:left;}.CountrylcColon{width:2%;float:left;}.CountrylcData{width:73%;float:left;}.DobLc{width:26%;float:left;}.DobLcColon{width:2%;float:left;}.DobLcData{width:71%;float:left;}.wordslc{width:26%;float:left;}.wordslcColon{width:2%;float:left;}.wordslcData{width:71%;float:left;}.lastshlc{width:26%;float:left;}.lastshlcColon{width:2%;float:left;}.lastshlcData{width:71%;float:left;}.DateAddlc{width:48%;float:left;}.DateAddlcColon{width:2%;float:left;}.DateAddlcData{width:50%;float:left;}.standrdlc{width:24%;float:left;}.standrdlcColon{width:2%;float:left;}.standrdlcData{width:72%;float:left;}.Academiclc{width:42%;float:left;}.AcademiclcColon{width:2%;float:left;}.AcademiclcData{width:56%;float:left;}.Conductlc{width:24%;float:left;}.ConductlcColon{width:2%;float:left;}.ConductlcData{width:72%;float:left;}.leavinglc{width:28%;float:left;}.leavinglcColon{width:2%;float:left;}.leavinglcData{width:70%;float:left;}.Studylc{width:55%;float:left;}.StudylcColon{width:2%;float:left;}.StudylcData{width:43%;float:left;}.Reasonlc{width:26%;float:left;}.ReasonlcColon{width:2%;float:left;}.ReasonlcData{width:71%;float:left;}.Remarkslc{width:26%;float:left;}.RemarkslcColon{width:2%;float:left;}.RemarkslcData{width:71%;float:left;}.Datelc{width:30%;float:left;}.DatelcColon{width:4%;float:left;}.DatelcData{width:65%;float:left;}.Monthlc{width:30%;float:left;}.MonthlcColon{width:4%;float:left;}.MonthlcData{width:65%;float:left;}.Yearlc{width:30%;float:left;}.YearlcColon{width:4%;float:left;}.YearlcData{width:65%;float:left;}.Notelc{width:6%;float:left;}.NotelcColon{width:2%;float:left;}.NotelcData{width:92%;float:left;}.Signtlc{margin-bottom: 0px;}</style></head>');
+                w.document.write('<body >');
+                w.document.write(divContentss);
+
+                w.document.write('</body></br></br></br></br><span class="right" style="text-align:center;"></html>');
+                //<!-- For Enquiry Please Contact This No. <b>022-65665688 </b> Timing<b> 9:30AM to 6:30PM </b></span> -->
+                //<span class="left" style="float:right;"></span>
+                //TEACHER SIGNATURE
+                //PRINCIPLE SIGNATURE
+                w.print();
+                $("#DisplayData").hide();
+                w.close();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="col-md-2 col-sm-2 col-xs-12" style="margin-bottom: 10px; padding: 0px; text-align: center; ">
+            <input type="button" value="Print" id="btnPrint" class="creat_data">
+        </div>
+        <!-- Main content -->
+        <section class="invoice">
+
+            <div class="row">
+
+                <div class="">
+                    <div class="table-responsive">
+                        <div id="PrintPage">
+                            <table  style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th colspan="12">
+                                            <div class="logo">
+                                                <div>
+												
+													<img src="images/ganesha.jpg" style="height: 94px;width: 65px;">
+                                                    <!-- <img src="http://spps.studentcares.net/Content/Images/AdminPanel/SchoolRegistration/SAHS.png" style="height: 94px;width: 65px;"> -->
+                                                </div>
+                                            </div>
+                                            <div class="events">
+                                                <div>
+                                                    <p class="hederData">|| श्रीं  गणेशाय  नमः ||   || जय  मातादी ||</p>
+                                                </div>
+                                                <div>
+                                                    <p style=""><span class="hederHeading">गणेश न्यूज  एजन्सी </span></p>
+                                                </div>
+                                                <div>
+                                                    <p class="hederData">डॉ  बाबा साहेब  चौक  नांदगाव  जि  नाशिक </p>
+                                                </div>
+                                                <div>
+                                                    <p class="hederData">प्रो  प्रा  बी  एम आलमचंदानी </p>
+                                                </div>
+                                            </div>
+                                            <div class="ScndLogo">
+                                                <div>
+                                                    <p class="rightData">मो . 8149335303</p>
+                                                </div>
+                                                <div>
+													<img src="images/saraswati.jpg" style="height: 94px;width: 65px;">	 
+                                                    <!-- <img src="http://spps.studentcares.net/Content/Images/AdminPanel/SchoolRegistration/SAHS.png" style="height: 94px;width: 65px;"> -->
+                                                </div>
+                                            </div>
+                                        </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th colspan="12">
+                                            <div class="number">
+                                                <div class="HeadinPart">
+                                                    <p class="numHeading">नंबर.</p>
+                                                </div>
+                                                <div class="ColonMain">
+                                                    <p class="numColon">:</p>
+                                                </div>
+                                                <div class="Datamain">
+                                                    <p id="txtBillId" class="mainData">test</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="number">
+                                                <div class="HeadinPart">
+                                                    <p class="numHeading">दिनांक</p>
+                                                </div>
+                                                <div class="ColonMain">
+                                                    <p class="numColon">:</p>
+                                                </div>
+                                                <div class="Datamain">
+                                                    <p class="mainData"><span><span style="visibility:hidden;">101</span>  /   <span style="visibility:hidden;">101</span>   / 20</span></p>
+                                                </div>
+                                            </div>
+
+                                            <div class="ShriNamemain">
+                                                <div class="ShriName">
+                                                    <p class="ShriNameData">श्री /रा. रा .</p>
+                                                </div>
+                                                <div class="ShriNamecol">
+                                                    <p class="ShriNamecolon">:</p>
+                                                </div>
+                                                <div class="ShriNameDt">
+                                                    <p id="txtUserName" class="ShriNameuser">test</p>
+                                                </div>
+                                            </div>
+                                        </th>
+
+                                    </tr>
+                                    <tr>
+                                        <th colspan="8">
+                                            <div class="pratache">
+                                                <p class="pratacheHd"><span class="Nawpratache">वृतपत्राचे  नाव </span></p>
+                                            </div>
+                                            <div class="DeatilMain">
+                                                <p class="detailHeading">गावकरी / देशदूत / सकाळ / लोकमत /जनश्रद्धा / महाराष्ट्र टाइम्स / लोकसत्ता / सामना / सम्राट / नवभारत टाइम्स  / पुण्यनगरी / वार्ताहर  / बिजनेस  / नवाकाळ  / पुढारी / यशोभुमी / आग्रोवन / मुंबई चौफेर / उर्दू  सहारा / संध्यानंद  / दिव्यमराठी / Indian Express / The Times Of India / Economics Times</p>
+                                            </div>
+                                        </th>
+                                        <th colspan="2"><span style="visibility:hidden;">गावकरी / देशदूत / सकाळ /</span> </th>
+                                        <th colspan="2"><span style="visibility:hidden;">गावकरी / देशदूत / सकाळ</span> </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="9" rowspan="3" style="padding:0px;">
+                                            <div style="padding:2px 5px;">
+                                                <div class="rupeeSec">
+                                                    <p class="userName">पैसे जमा करणाऱ्याचे नाव  </p>
+                                                </div>
+                                                <div class="rupeeSeccol">
+                                                    <p class="rscolon">:</p>
+                                                </div>
+                                                <div class="rupeeSecdt">
+                                                    <p class="rupeeSecdata"></p>
+                                                </div>
+
+                                                <div class="correct">
+                                                    <p class="correctData">सही </p>
+                                                </div>	
+                                                <div class="DateSection">
+                                                    <p class="correctData">पैसे जमा करण्याची  तारिख  : <span><span style="visibility:hidden;">101</span>  /   <span style="visibility:hidden;">101</span>   / 20</span></p>
+                                                </div>
+                                            </div>
+                                            <div class="topbrd1"></div>
+                                            <div class="topbrd2"></div>
+                                            <div class="rateHeading">
+                                                <p class="rateHeadingData"><span class="rathed">वृत्तपत्र  व्यवसायाचे  ७६  वे  वर्ष </span></p>
+                                            </div>
+
+                                            <div style="padding:2px 5px;">
+                                                <div class="ratesection">
+                                                    <p class="rateData">दर महिन्याला पैसे  जमा करणे चांगल्या  व्यवहाराचे  लक्षण  आहे .</p>
+                                                    <p class="rateData">फर्म :-   प्यारिस  वॉच  कं. अँड  ऑप्टिकल्स,  म.  फुले चौक,  नांदगाव .</p>
+                                                </div>
+                                            </div>
+                                        </th>
+                                        <th>चालू बिल - </th>
+                                        <th id="txtCurrentAmount">$50</th>
+                                    </tr>
+                                    <tr>
+                                        <th>मागील बाकी  - </th>
+                                        <th id="txtpreviouBalance">$80</th>
+                                    </tr>
+                                    <tr>
+                                        <th>एकुण बिल -  </th>
+                                        <th id="txtTotalAmount">$80</th>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</body>
+
+</html>
